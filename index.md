@@ -1,4 +1,0 @@
-<link rel="stylesheet" href="assets/css/style.scss">
-# 这是由雅礼国际部社团 ITA智创协会 维护的资源分享网站
-## 你可以在这里获取我们的学习资料、与我们交流、加入我们的项目开发，以及提交二创作品！
--[AtomGit多人协作流程](docs/AtomGit协作流程.pdf)
