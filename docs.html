@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITA智创协会 | 文档中心</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 文档页面样式 */
+        .docs-page {
+            padding-top: 80px;
+        }
+
+        .docs-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .docs-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .docs-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .docs-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .docs-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 30px;
+        }
+
+        .docs-sidebar {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .docs-sidebar h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .docs-category {
+            margin-bottom: 25px;
+        }
+
+        .docs-category-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .docs-list {
+            list-style: none;
+        }
+
+        .docs-list li {
+            margin-bottom: 10px;
+        }
+
+        .docs-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .docs-item:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+            transform: translateX(5px);
+        }
+
+        .docs-item.active {
+            background-color: rgba(52, 152, 219, 0.15);
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .docs-item i {
+            color: var(--secondary-color);
+        }
+
+        .docs-item-name {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .docs-item-size {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .docs-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            min-height: 600px;
+        }
+
+        .docs-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .docs-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .docs-title i {
+            color: var(--secondary-color);
+        }
+
+        .docs-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .docs-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .docs-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .docs-btn.secondary {
+            background-color: #95a5a6;
+        }
+
+        .docs-btn.secondary:hover {
+            background-color: #7f8c8d;
+        }
+
+        .docs-preview {
+            width: 100%;
+            height: 700px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #f5f5f5;
+        }
+
+        .docs-preview iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .docs-info {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .docs-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .docs-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .docs-info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .docs-info-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .docs-info-value {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .docs-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 500px;
+            color: #888;
+        }
+
+        .docs-empty i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+
+        .docs-empty p {
+            font-size: 1.2rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .docs-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .docs-sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .docs-header h1 {
+                font-size: 2rem;
+            }
+
+            .docs-toolbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .docs-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .docs-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .docs-preview {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none;">
+                    <span class="logo-cn">ITA智创协会</span>
+                    <span class="logo-en">InTech Association</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html#home" class="nav-link">首页</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">关于我们</a></li>
+                <li class="nav-item"><a href="index.html#mission" class="nav-link">宗旨与精神</a></li>
+                <li class="nav-item"><a href="index.html#activities" class="nav-link">活动</a></li>
+                <li class="nav-item"><a href="docs.html" class="nav-link" style="color: var(--secondary-color);">文档</a></li>
+                <li class="nav-item"><a href="index.html#contact" class="nav-link">联系我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 文档页面 -->
+    <div class="docs-page">
+        <div class="docs-header">
+            <div class="container">
+                <h1>文档中心</h1>
+                <p>探索我们的学习资料、讲义和PPT</p>
+            </div>
+        </div>
+
+        <div class="docs-container">
+            <div class="docs-layout">
+                <!-- 文档侧边栏 -->
+                <div class="docs-sidebar">
+                    <h3><i class="fas fa-folder-open"></i> 文档分类</h3>
+
+                    <div class="docs-category">
+                        <div class="docs-category-title">
+                            <i class="fas fa-brain"></i> 人工智能
+                        </div>
+                        <ul class="docs-list">
+                            <li>
+                                <a href="#" class="docs-item active" data-file="机器学习常用术语.pdf" data-size="121 KB">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span class="docs-item-name">机器学习常用术语</span>
+                                    <span class="docs-item-size">121 KB</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="docs-category">
+                        <div class="docs-category-title">
+                            <i class="fas fa-code"></i> 编程开发
+                        </div>
+                        <ul class="docs-list">
+                            <li>
+                                <a href="#" class="docs-item" data-file="" data-size="">
+                                    <i class="fas fa-file-powerpoint"></i>
+                                    <span class="docs-item-name">Python基础入门</span>
+                                    <span class="docs-item-size">即将上线</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="docs-item" data-file="" data-size="">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span class="docs-item-name">数据分析实战</span>
+                                    <span class="docs-item-size">即将上线</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 文档内容区 -->
+                <div class="docs-content">
+                    <div class="docs-toolbar">
+                        <div class="docs-title">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>机器学习常用术语</span>
+                        </div>
+                        <div class="docs-actions">
+                            <a href="docs/机器学习常用术语.pdf" class="docs-btn" download>
+                                <i class="fas fa-download"></i> 下载文档
+                            </a>
+                            <a href="docs/机器学习常用术语.pdf" class="docs-btn secondary" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 新窗口打开
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="docs-preview">
+                        <iframe src="docs/机器学习常用术语.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                    </div>
+
+                    <div class="docs-info">
+                        <h4><i class="fas fa-info-circle"></i> 文档信息</h4>
+                        <div class="docs-info-grid">
+                            <div class="docs-info-item">
+                                <span class="docs-info-label">文件名</span>
+                                <span class="docs-info-value">机器学习常用术语.pdf</span>
+                            </div>
+                            <div class="docs-info-item">
+                                <span class="docs-info-label">文件大小</span>
+                                <span class="docs-info-value">121 KB</span>
+                            </div>
+                            <div class="docs-info-item">
+                                <span class="docs-info-label">文件类型</span>
+                                <span class="docs-info-value">PDF 文档</span>
+                            </div>
+                            <div class="docs-info-item">
+                                <span class="docs-info-label">更新时间</span>
+                                <span class="docs-info-value">2024-01-15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-cn">ITA智创协会</span>
+                    <span class="logo-en">InTech Association</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html#home">首页</a>
+                    <a href="index.html#about">关于我们</a>
+                    <a href="index.html#mission">宗旨与精神</a>
+                    <a href="index.html#activities">活动</a>
+                    <a href="docs.html">文档</a>
+                    <a href="index.html#contact">联系我们</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 ITA智创协会 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 文档切换功能
+        document.querySelectorAll('.docs-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // 移除所有活动状态
+                document.querySelectorAll('.docs-item').forEach(doc => {
+                    doc.classList.remove('active');
+                });
+
+                // 添加当前项的活动状态
+                this.classList.add('active');
+
+                // 获取文件信息
+                const fileName = this.getAttribute('data-file');
+                const fileSize = this.getAttribute('data-size');
+
+                if (fileName) {
+                    // 更新标题
+                    document.querySelector('.docs-title span').textContent = fileName.replace('.pdf', '');
+
+                    // 更新下载链接
+                    document.querySelector('.docs-actions .docs-btn').href = 'docs/' + fileName;
+                    document.querySelector('.docs-actions .docs-btn.secondary').href = 'docs/' + fileName;
+
+                    // 更新预览
+                    document.querySelector('.docs-preview iframe').src = 'docs/' + fileName + '#toolbar=0&navpanes=0&scrollbar=0';
+
+                    // 更新文档信息
+                    document.querySelector('.docs-info .docs-info-value').textContent = fileName;
+                    document.querySelectorAll('.docs-info .docs-info-value')[1].textContent = fileSize;
+                    document.querySelectorAll('.docs-info .docs-info-value')[2].textContent = 'PDF 文档';
+                } else {
+                    // 显示即将上线
+                    document.querySelector('.docs-title span').textContent = '即将上线';
+                    document.querySelector('.docs-preview').innerHTML = `
+                        <div class="docs-empty">
+                            <i class="fas fa-file-alt"></i>
+                            <p>该文档即将上线，敬请期待</p>
+                        </div>
+                    `;
+
+                    // 禁用下载按钮
+                    document.querySelector('.docs-actions .docs-btn').style.pointerEvents = 'none';
+                    document.querySelector('.docs-actions .docs-btn').style.opacity = '0.5';
+                    document.querySelector('.docs-actions .docs-btn.secondary').style.pointerEvents = 'none';
+                    document.querySelector('.docs-actions .docs-btn.secondary').style.opacity = '0.5';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
