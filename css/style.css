@@ -17,9 +17,7 @@
     box-sizing: border-box;
 }
 
-div {
-    background-color: #e3f2fd;
-}
+
 
 html {
     scroll-behavior: smooth;
@@ -129,14 +127,14 @@ body {
 
 /* 首页轮播图 */
 .hero {
-    padding-top: 120px;
+    padding-top: 70px;
     position: relative;
 }
 
 .carousel {
     position: relative;
     width: 100%;
-    height: 700px;
+    height: 600px;
     overflow: hidden;
 }
 
@@ -176,13 +174,13 @@ body {
 }
 
 .slide-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
 .slide-desc {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 300;
 }
 
