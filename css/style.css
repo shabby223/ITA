@@ -487,11 +487,14 @@ section {
     box-shadow: var(--shadow);
     transition: var(--transition);
     text-align: center;
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .activity-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .activity-icon {
@@ -507,8 +510,8 @@ section {
 }
 
 .activity-card:hover .activity-icon {
+    transform: rotate(360deg) scale(1.1);
     background-color: var(--secondary-color);
-    transform: scale(1.1);
 }
 
 .activity-icon i {
