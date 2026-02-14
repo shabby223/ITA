@@ -133,7 +133,7 @@ body {
 
 .carousel {
     position: relative;
-    width: 100%;
+    width: 90%;
     height: 600px;
     overflow: hidden;
 }
