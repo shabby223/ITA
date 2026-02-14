@@ -134,9 +134,7 @@ body {
 .carousel {
     position: relative;
     width: 100%;
-    height: 70vh; /* 使用视口高度，响应式 */
-    min-height: 400px; /* 最小高度 */
-    max-height: 800px; /* 最大高度 */
+    height: 700px; /* 固定高度 */
     overflow: hidden;
 }
 
@@ -146,12 +144,11 @@ body {
     height: 100%;
 }
 
-.carousel-item {
-    position: absolute;
+.carousel-item img {
     width: 100%;
     height: 100%;
-    opacity: 0;
-    transition: opacity 0.8s ease;
+    object-fit: cover;
+    object-position: center;
 }
 
 .carousel-item.active {
