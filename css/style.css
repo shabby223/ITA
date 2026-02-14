@@ -352,6 +352,42 @@ section {
     color: #555;
 }
 
+/* 社团创始者 */
+.about-founder {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.founder-content {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.founder-info {
+    text-align: center;
+}
+
+.founder-name {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.founder-role {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.founder-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
 /* 响应式布局 */
 @media (max-width: 768px) {
     .character-content {
