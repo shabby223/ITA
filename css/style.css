@@ -133,8 +133,10 @@ body {
 
 .carousel {
     position: relative;
-    width: 90%;
-    height: 600px;
+    width: 100%;
+    height: 70vh; /* 使用视口高度，响应式 */
+    min-height: 400px; /* 最小高度 */
+    max-height: 800px; /* 最大高度 */
     overflow: hidden;
 }
 
@@ -156,11 +158,13 @@ body {
     opacity: 1;
 }
 
-.carousel-item img {
+.carousel {
+    position: relative;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center bottom;
+    height: 70vh; /* 使用视口高度，响应式 */
+    min-height: 400px; /* 最小高度 */
+    max-height: 800px; /* 最大高度 */
+    overflow: hidden;
 }
 
 .carousel-caption {
