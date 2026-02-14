@@ -10,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- 语言切换按钮 -->
+    <div class="language-switch">
+        <button id="lang-btn" class="lang-btn">EN</button>
+    </div>
+
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="container">
@@ -18,12 +23,12 @@
                 <span class="logo-en">InTech Association</span>
             </div>
             <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link">首页</a></li>
-                <li class="nav-item"><a href="index.html#about" class="nav-link">关于我们</a></li>
-                <li class="nav-item"><a href="index.html#mission" class="nav-link">宗旨与精神</a></li>
-                <li class="nav-item"><a href="index.html#activities" class="nav-link">活动</a></li>
-                <li class="nav-item"><a href="docs.html" class="nav-link active">文档</a></li>
-                <li class="nav-item"><a href="index.html#contact" class="nav-link">联系我们</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link" data-cn="首页" data-en="Home">首页</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link" data-cn="关于我们" data-en="About">关于我们</a></li>
+                <li class="nav-item"><a href="index.html#mission" class="nav-link" data-cn="宗旨与精神" data-en="Mission & Spirit">宗旨与精神</a></li>
+                <li class="nav-item"><a href="index.html#activities" class="nav-link" data-cn="活动" data-en="Activities">活动</a></li>
+                <li class="nav-item"><a href="docs.html" class="nav-link active" data-cn="文档" data-en="Documents">文档</a></li>
+                <li class="nav-item"><a href="index.html#contact" class="nav-link" data-cn="联系我们" data-en="Contact">联系我们</a></li>
             </ul>
         </div>
     </nav>
@@ -31,8 +36,8 @@
     <!-- 文档页面 -->
     <section class="docs-section">
         <div class="container">
-            <h2 class="section-title">社团文档</h2>
-            <p class="docs-intro">这里收集了社团的讲义、PPT等学习资料，供大家下载和学习。</p>
+            <h2 class="section-title" data-cn="社团文档" data-en="Club Documents">社团文档</h2>
+            <p class="docs-intro" data-cn="这里收集了社团的讲义、PPT等学习资料，供大家下载和学习。" data-en="Here we collect the club's handouts, PPTs and other learning materials for everyone to download and study.">这里收集了社团的讲义、PPT等学习资料，供大家下载和学习。</p>
 
             <div class="docs-grid">
                 <div class="doc-card">
@@ -40,14 +45,122 @@
                         <i class="fas fa-file-pdf"></i>
                     </div>
                     <div class="doc-info">
-                        <h3 class="doc-title">机器学习常用术语</h3>
-                        <p class="doc-desc">机器学习领域的常用术语解释，适合初学者入门学习。</p>
+                        <h3 class="doc-title" data-cn="机器学习常用术语" data-en="Common Machine Learning Terminology">机器学习常用术语</h3>
+                        <div class="doc-desc" data-cn="包含机器学习领域常用的术语和概念解释，适合初学者入门。" data-en="Contains common terms and concept explanations in the field of machine learning, suitable for beginners.">包含机器学习领域常用的术语和概念解释，适合初学者入门。</div>
                         <div class="doc-actions">
                             <a href="docs/机器学习常用术语.pdf" class="btn download-btn" download>
-                                <i class="fas fa-download"></i> 下载
+                                <i class="fas fa-download"></i> <span data-cn="下载" data-en="Download">下载</span>
                             </a>
                             <button class="btn preview-btn" onclick="openPreview('docs/机器学习常用术语.pdf')">
-                                <i class="fas fa-eye"></i> 预览
+                                <i class="fas fa-eye"></i> <span data-cn="预览" data-en="Preview">预览</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="doc-info">
+                        <h3 class="doc-title" data-cn="Git 使用手册" data-en="Git User Manual">Git 使用手册</h3>
+                        <div class="doc-desc" data-cn="详细介绍Git版本控制工具的使用方法和常用命令。" data-en="Detailed introduction to the usage methods and common commands of Git version control tool.">详细介绍Git版本控制工具的使用方法和常用命令。</div>
+                        <div class="doc-actions">
+                            <a href="docs/Git 使用手册.pdf" class="btn download-btn" download>
+                                <i class="fas fa-download"></i> <span data-cn="下载" data-en="Download">下载</span>
+                            </a>
+                            <button class="btn preview-btn" onclick="openPreview('docs/Git 使用手册.pdf')">
+                                <i class="fas fa-eye"></i> <span data-cn="预览" data-en="Preview">预览</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="doc-info">
+                        <h3 class="doc-title" data-cn="Goushi GPT V3 开发思路" data-en="Goushi GPT V3 Development Ideas">Goushi GPT V3 开发思路</h3>
+                        <div class="doc-desc" data-cn="介绍Goushi GPT V3模型的开发思路和实现细节。" data-en="Introduces the development ideas and implementation details of the Goushi GPT V3 model.">介绍Goushi GPT V3模型的开发思路和实现细节。</div>
+                        <div class="doc-actions">
+                            <a href="docs/Goushi GPT V3 开发思路.pdf" class="btn download-btn" download>
+                                <i class="fas fa-download"></i> <span data-cn="下载" data-en="Download">下载</span>
+                            </a>
+                            <button class="btn preview-btn" onclick="openPreview('docs/Goushi GPT V3 开发思路.pdf')">
+                                <i class="fas fa-eye"></i> <span data-cn="预览" data-en="Preview">预览</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-file-powerpoint"></i>
+                    </div>
+                    <div class="doc-info">
+                        <h3 class="doc-title" data-cn="模型蒸馏：从知识迁移看高效模型构建" data-en="Model Distillation: Efficient Model Construction from Knowledge Transfer">模型蒸馏：从知识迁移看高效模型构建</h3>
+                        <div class="doc-desc" data-cn="介绍模型蒸馏技术及其在构建高效神经网络模型中的应用。" data-en="Introduces model distillation technology and its application in building efficient neural network models.">介绍模型蒸馏技术及其在构建高效神经网络模型中的应用。</div>
+                        <div class="doc-actions">
+                            <a href="docs/模型蒸馏：从知识迁移看高效模型构建.pptx" class="btn download-btn" download>
+                                <i class="fas fa-download"></i> <span data-cn="下载" data-en="Download">下载</span>
+                            </a>
+                            <button class="btn preview-btn" onclick="openPreview('docs/模型蒸馏：从知识迁移看高效模型构建.pptx')">
+                                <i class="fas fa-eye"></i> <span data-cn="预览" data-en="Preview">预览</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="doc-info">
+                        <h3 class="doc-title" data-cn="神经网络数学推导" data-en="Mathematical Derivation of Neural Networks">神经网络数学推导</h3>
+                        <div class="doc-desc" data-cn="详细介绍神经网络背后的数学原理和推导过程。" data-en="Detailed introduction to the mathematical principles and derivation process behind neural networks.">详细介绍神经网络背后的数学原理和推导过程。</div>
+                        <div class="doc-actions">
+                            <a href="docs/神经网络数学推导.pdf" class="btn download-btn" download>
+                                <i class="fas fa-download"></i> <span data-cn="下载" data-en="Download">下载</span>
+                            </a>
+                            <button class="btn preview-btn" onclick="openPreview('docs/神经网络数学推导.pdf')">
+                                <i class="fas fa-eye"></i> <span data-cn="预览" data-en="Preview">预览</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="doc-info">
+                        <h3 class="doc-title" data-cn="神经网络概述" data-en="Overview of Neural Networks">神经网络概述</h3>
+                        <div class="doc-desc" data-cn="介绍神经网络的基本概念、结构和应用领域。" data-en="Introduces the basic concepts, structures, and application areas of neural networks.">介绍神经网络的基本概念、结构和应用领域。</div>
+                        <div class="doc-actions">
+                            <a href="docs/神经网络概述.pdf" class="btn download-btn" download>
+                                <i class="fas fa-download"></i> <span data-cn="下载" data-en="Download">下载</span>
+                            </a>
+                            <button class="btn preview-btn" onclick="openPreview('docs/神经网络概述.pdf')">
+                                <i class="fas fa-eye"></i> <span data-cn="预览" data-en="Preview">预览</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-file-powerpoint"></i>
+                    </div>
+                    <div class="doc-info">
+                        <h3 class="doc-title" data-cn="项目介绍" data-en="Project Introduction">项目介绍</h3>
+                        <div class="doc-desc" data-cn="介绍ITA智创协会的主要项目内容和成果展示。" data-en="Introduces the main project content and achievements of ITA InTech Association.">介绍ITA智创协会的主要项目内容和成果展示。</div>
+                        <div class="doc-actions">
+                            <a href="docs/项目介绍.pptx" class="btn download-btn" download>
+                                <i class="fas fa-download"></i> <span data-cn="下载" data-en="Download">下载</span>
+                            </a>
+                            <button class="btn preview-btn" onclick="openPreview('docs/项目介绍.pptx')">
+                                <i class="fas fa-eye"></i> <span data-cn="预览" data-en="Preview">预览</span>
                             </button>
                         </div>
                     </div>
@@ -75,16 +188,16 @@
                     <span class="logo-en">InTech Association</span>
                 </div>
                 <div class="footer-links">
-                    <a href="index.html">首页</a>
-                    <a href="index.html#about">关于我们</a>
-                    <a href="index.html#mission">宗旨与精神</a>
-                    <a href="index.html#activities">活动</a>
-                    <a href="docs.html">文档</a>
-                    <a href="index.html#contact">联系我们</a>
+                    <a href="index.html" data-cn="首页" data-en="Home">首页</a>
+                    <a href="index.html#about" data-cn="关于我们" data-en="About">关于我们</a>
+                    <a href="index.html#mission" data-cn="宗旨与精神" data-en="Mission & Spirit">宗旨与精神</a>
+                    <a href="index.html#activities" data-cn="活动" data-en="Activities">活动</a>
+                    <a href="docs.html" data-cn="文档" data-en="Documents">文档</a>
+                    <a href="index.html#contact" data-cn="联系我们" data-en="Contact">联系我们</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2023 ITA智创协会 版权所有</p>
+                <p data-cn="© 2026 ITA智创协会 版权所有" data-en="© 2023 InTech Association. All Rights Reserved.">© 2026 ITA智创协会 版权所有</p>
             </div>
         </div>
     </footer>
@@ -111,6 +224,30 @@
                 modal.style.display = 'none';
             }
         }
+
+        // 语言切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const langBtn = document.getElementById('lang-btn');
+            let currentLang = 'zh'; // 默认中文
+
+            // 切换语言函数
+            function switchLanguage() {
+                currentLang = currentLang === 'zh' ? 'en' : 'zh';
+                langBtn.textContent = currentLang === 'zh' ? 'EN' : '中文';
+
+                // 更新所有带有 data-cn 和 data-en 属性的元素
+                document.querySelectorAll('[data-cn][data-en]').forEach(element => {
+                    const content = currentLang === 'zh' ? element.getAttribute('data-cn') : element.getAttribute('data-en');
+                    element.textContent = content;
+                });
+
+                // 更新HTML lang属性
+                document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
+            }
+
+            // 语言按钮点击事件
+            langBtn.addEventListener('click', switchLanguage);
+        });
     </script>
 </body>
 </html>
