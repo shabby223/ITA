@@ -61,7 +61,7 @@ body {
 
 /* 导航栏 */
 .navbar {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: var(--dark-color);
     box-shadow: var(--shadow);
     position: fixed;
     width: 100%;
@@ -85,12 +85,12 @@ body {
 .logo-cn {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: white;
 }
 
 .logo-en {
     font-size: 0.8rem;
-    color: var(--secondary-color);
+    color: var(--light-color);
     font-weight: 400;
 }
 
@@ -105,7 +105,7 @@ body {
 
 .nav-link {
     text-decoration: none;
-    color: var(--primary-color);
+    color: white;
     font-weight: 500;
     transition: var(--transition);
     position: relative;
@@ -118,7 +118,7 @@ body {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: var(--secondary-color);
+    background-color: var(--accent-color);
     transition: var(--transition);
 }
 
@@ -127,7 +127,7 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
 /* 首页轮播图 */
@@ -273,12 +273,12 @@ section {
 
 .about-content {
     display: flex;
-    gap: 50px;
-    align-items: center;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .about-text {
-    flex: 1;
+    width: 100%;
 }
 
 .subsection-title {
@@ -294,13 +294,76 @@ section {
 }
 
 .about-image {
-    flex: 1;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .about-image img {
     width: 100%;
     border-radius: 10px;
     box-shadow: var(--shadow);
+}
+
+/* 虚拟形象展示 */
+.about-character {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.character-content {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.character-image {
+    flex: 0 0 300px;
+}
+
+.character-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.character-image img:hover {
+    transform: scale(1.05);
+}
+
+.character-info {
+    flex: 1;
+}
+
+.character-name {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.character-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+    .character-content {
+        flex-direction: column;
+    }
+
+    .character-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
 }
 
 /* 宗旨与精神 */
