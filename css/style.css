@@ -1,10 +1,10 @@
 /* 全局样式 */
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
+    --primary-color: #0d1b2a;
+    --secondary-color: #1b4965;
+    --accent-color: #62b6cb;
     --light-color: #ecf0f1;
-    --dark-color: #2c3e50;
+    --dark-color: #0d1b2a;
     --text-color: #333;
     --light-text: #f9f9f9;
     --transition: all 0.3s ease;
@@ -391,6 +391,7 @@ section {
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    text-align: center;
 }
 
 .activity-card:hover {
@@ -398,28 +399,39 @@ section {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.activity-image {
-    height: 200px;
-    overflow: hidden;
-}
-
-.activity-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.activity-icon {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(13, 27, 42, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
     transition: var(--transition);
 }
 
-.activity-card:hover .activity-image img {
-    transform: scale(1.05);
+.activity-card:hover .activity-icon {
+    background-color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+.activity-icon i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    transition: var(--transition);
+}
+
+.activity-card:hover .activity-icon i {
+    color: white;
 }
 
 .activity-content {
-    padding: 20px;
+    padding: 30px;
 }
 
 .activity-title {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: 15px;
     color: var(--primary-color);
 }
@@ -444,16 +456,19 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
+    justify-content: center;
 }
 
 .contact-info {
     flex: 1;
     min-width: 300px;
+    max-width: 600px;
+    text-align: center;
 }
 
 .contact-title {
     font-size: 1.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .contact-desc {
@@ -465,24 +480,35 @@ section {
 .contact-details {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+    align-items: center;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
     gap: 15px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px 30px;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.contact-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
 }
 
 .contact-item i {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
+    width: 45px;
+    height: 45px;
+    background-color: var(--accent-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.3rem;
 }
 
 .contact-form {
@@ -543,7 +569,7 @@ section {
 
 /* 页脚 */
 .footer {
-    background-color: #1a252f;
+    background-color: var(--dark-color);
     color: white;
     padding: 30px 0;
     text-align: center;
