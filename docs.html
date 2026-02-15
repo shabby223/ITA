@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文档 | ITA智创协会</title>
+    <title data-cn="文档 | ITA智创协会" data-en="Documents | InTech Association">文档 | ITA智创协会</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/docs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -228,11 +228,12 @@
         // 语言切换功能
         document.addEventListener('DOMContentLoaded', function() {
             const langBtn = document.getElementById('lang-btn');
-            let currentLang = 'zh'; // 默认中文
+            // 从localStorage获取保存的语言设置，如果没有则默认为中文
+            let currentLang = localStorage.getItem('siteLanguage') || 'zh';
 
-            // 切换语言函数
-            function switchLanguage() {
-                currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            // 初始化页面语言
+            function initLanguage() {
+                // 更新按钮文本
                 langBtn.textContent = currentLang === 'zh' ? 'EN' : '中文';
 
                 // 更新所有带有 data-cn 和 data-en 属性的元素
@@ -243,7 +244,34 @@
 
                 // 更新HTML lang属性
                 document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
+
+                // 处理logo显示
+                const logoCn = document.querySelector('.logo-cn');
+                const logoEn = document.querySelector('.logo-en');
+                if (logoCn && logoEn) {
+                    logoCn.style.display = currentLang === 'zh' ? 'block' : 'none';
+                    logoEn.style.display = currentLang === 'zh' ? 'none' : 'block';
+                }
+
+                // 更新页面标题
+                const title = document.querySelector('title');
+                if (title) {
+                    title.textContent = currentLang === 'zh' ? title.getAttribute('data-cn') : title.getAttribute('data-en');
+                }
             }
+
+            // 切换语言函数
+            function switchLanguage() {
+                currentLang = currentLang === 'zh' ? 'en' : 'zh';
+                // 保存语言设置到localStorage
+                localStorage.setItem('siteLanguage', currentLang);
+
+                // 应用语言设置
+                initLanguage();
+            }
+
+            // 页面加载时初始化语言
+            initLanguage();
 
             // 语言按钮点击事件
             langBtn.addEventListener('click', switchLanguage);
